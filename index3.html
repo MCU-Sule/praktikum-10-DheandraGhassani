@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soal 3</title>
+</head>
+<style>
+    .a{
+        width: 60px;
+        height: 60px;
+        border: black 4px solid; 
+        display: inline-block;
+        font-size: 40px;
+        text-align: center;
+    }
+    .kotak{
+        display: flex;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+    }
+    input {
+        display: block;
+
+    }
+</style>
+<body>
+    <div class="kotak">
+    <div id="satu" class="a">0</div>
+    <div id="dua" class="a">0</div>
+    <div id="tiga" class="a">0</div>
+    <div id="empat" class="a">0</div>
+    <div id="lima" class="a">0</div>
+    <div class="tombol">
+    <input type="button" value="Guess" id="Tebak">
+    <input type="button" value="Reset" id="Ulang">
+    </div>
+    </div>
+<script>
+    let random= Math.floor(Math.random()*10001);
+    console.log(random)
+    let urutan= 0;
+    document.getElementById("satu").style.border="4px solid red";
+    document.addEventListener("keydown", kotakmerah);
+    function kotakmerah(arrow){
+        if(arrow.keyCode==39){
+        if(urutan==0){
+           document.getElementById("satu").style.border="4px solid black";
+            urutan++ 
+            document.getElementById("dua").style.border="4px solid red";
+        }
+        else if(urutan==1){
+            document.getElementById("dua").style.border="4px solid black";
+            urutan++ 
+            document.getElementById("tiga").style.border="4px solid red";
+        }
+        else if(urutan==2){
+            document.getElementById("tiga").style.border="4px solid black";
+            urutan++ 
+            document.getElementById("empat").style.border="4px solid red";
+        } 
+        else if(urutan==3){
+            document.getElementById("empat").style.border="4px solid black";
+            urutan++ 
+            document.getElementById("lima").style.border="4px solid red";
+        } 
+        }
+        else if(arrow.keyCode==37){
+            if(urutan==1){
+           document.getElementById("dua").style.border="4px solid black";
+            urutan-- 
+            document.getElementById("satu").style.border="4px solid red";
+        }
+        else if(urutan==2){
+            document.getElementById("tiga").style.border="4px solid black";
+            urutan--
+            document.getElementById("dua").style.border="4px solid red";
+        }
+        else if(urutan==3){
+            document.getElementById("empat").style.border="4px solid black";
+            urutan-- 
+            document.getElementById("tiga").style.border="4px solid red";
+        } 
+        else if(urutan==4){
+            document.getElementById("lima").style.border="4px solid black";
+            urutan-- 
+            document.getElementById("empat").style.border="4px solid red";
+        }
+        console.log(urutan)    
+        }
+        
+
+    }
+        let angkasatu=0;
+        let angkadua=0;
+        let angkatiga=0;
+        let angkaempat=0;
+        let angkalima=0;
+        document.addEventListener("keydown", atas);
+    function atas(arrow){
+        
+        if(arrow.keyCode==38){
+        if (urutan==0 && angkasatu < 9){
+            angkasatu++
+            document.getElementById("satu").innerHTML=angkasatu;
+        }
+        else if(urutan==1 && angkadua < 9){
+            angkadua++
+            document.getElementById("dua").innerHTML=angkadua;
+        }
+        else if(urutan==2 && angkatiga < 9){
+            angkatiga++
+            document.getElementById("tiga").innerHTML=angkatiga;
+        }
+        else if(urutan==3 && angkaempat < 9){
+            angkaempat++
+            document.getElementById("empat").innerHTML=angkaempat;
+        }
+        else if(urutan==4 && angkalima < 9){
+            angkalima++
+            document.getElementById("lima").innerHTML=angkalima;
+        }
+        }
+        else if(arrow.keyCode==40){
+            if (urutan==0 && angkasatu > 0){
+            angkasatu--
+            document.getElementById("satu").innerHTML=angkasatu;
+        }
+        else if(urutan==1 && angkadua > 0){
+            angkadua--
+            document.getElementById("dua").innerHTML=angkadua;
+        }
+        else if(urutan==2 && angkatiga > 0){
+            angkatiga--
+            document.getElementById("tiga").innerHTML=angkatiga;
+        }
+        else if(urutan==3 && angkaempat > 0){
+            angkaempat--
+            document.getElementById("empat").innerHTML=angkaempat;
+        }
+        else if(urutan==4 && angkalima > 0){
+            angkalima--
+            document.getElementById("lima").innerHTML=angkalima;
+        }
+        }
+    }
+    document.getElementById("Tebak").addEventListener("click", Nebak);
+    function Nebak(){
+        let z1= document.getElementById("satu").innerHTML;
+        let z2= document.getElementById("dua").innerHTML;
+        let z3= document.getElementById("tiga").innerHTML;
+        let z4= document.getElementById("empat").innerHTML;
+        let z5= document.getElementById("lima").innerHTML;
+        let jumlah= z1+z2+z3+z4+z5;
+        if(jumlah < random){
+            alert ("Terlalu Kecil")
+        }
+        else if(jumlah > random){
+            alert ("Terlalu Besar")  
+        }
+        else if(jumlah ==random){
+            alert ("You Win")
+        }
+    }
+    document.getElementById("Ulang").addEventListener("click", Ulang);
+    function Ulang(){
+        urutan=0;
+        angkasatu=0;
+        angkadua=0;
+        angkatiga=0;
+        angkaempat=0;
+        angkalima=0;
+    document.getElementById("satu").style.border="4px solid red"
+    document.getElementById("dua").style.border="4px solid black"
+    document.getElementById("tiga").style.border="4px solid black"
+    document.getElementById("empat").style.border="4px solid black"
+    document.getElementById("lima").style.border="4px solid black"
+    document.getElementById("satu").innerHTML="0"
+    document.getElementById("dua").innerHTML="0"
+    document.getElementById("tiga").innerHTML="0"
+    document.getElementById("empat").innerHTML="0"
+    document.getElementById("lima").innerHTML="0"
+    random= Math.floor(Math.random()*10001);
+    console.log(random)
+
+    }
+</script>
+    
+</body>
+</html>

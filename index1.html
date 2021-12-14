@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="Dheandra Halwa Ghassani 2172040">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soal 1</title>
+<style>
+    #a {
+        background-color: #FF8C00;
+    }
+    #b {
+        background-color: #00BFFF;
+    }
+    #c {
+        background-color: #FF1493;
+    }
+    #d {
+        background-color: #FF6347;
+    }
+</style>
+</head>
+<body>
+    <div id="a"><h3><b>Penjumlahan</b></h3></div>
+        <div><input id="z" type="text" readonly> + <input id="h" type="text" readonly> = <input id="l" type="text">
+            &nbsp;<button onclick= "hasil()" style="background-color:#87ceeb;">Hitung</button></div><br>
+        <div><button onclick= "Penjumlahan()" ="background-color:#32cd32;">Random</button><p id="q"></p></div>
+
+    <div id="b"><h3><b>Pengurangan</b></h3></div>
+        <div><input id="y" type="text" readonly> - <input id="i" type="text" readonly> = <input id="m" type="text">
+            &nbsp;<button onclick= "hasil2()" style="background-color:#87ceeb;">Hitung</button></div><br>
+            <div><button onclick= "Pengurangan()" ="background-color:#32cd32;">Random</button><p id="r"></p></div>
+
+    <div id="c"><h3><b>Perkalian</b></h3></div>
+        <div><input id="x" type="text" readonly> * <input id="j" type="text" readonly> = <input id="n" type="text">
+            &nbsp;<button onclick= "hasil3()" style="background-color:#87ceeb;">Hitung</button></div><br>
+            <div><button onclick= "Perkalian()" ="background-color:#32cd32;">Random</button><p id="s"></p></div>
+
+    <div id="d"><h3><b>Bilangan</b></h3></div>
+        <div><input id="w" type="text" readonly> = <input id="k" type="text"> , <input id="o" type="text" > , <input id="p" type="text">
+            &nbsp;<button onclick= "hasil4()" style="background-color:#87ceeb;">Hitung</button></div><br>
+            <div><button onclick= "Bilangan()" ="background-color: #32cd32;">Random</button><p id="t"></p></div>
+
+    <script>
+       let c= 0
+       function Penjumlahan() {
+           let a= Math.floor(Math.random()*999)
+           let b= Math.floor(Math.random()*999)
+           c=a+b;
+           document.querySelector("#z").value=a;
+           document.querySelector("#h").value=b;
+       }
+       function hasil() {
+           if(document.querySelector("#l").value==c){
+            document.querySelector("#q").innerHTML= "Jawaban Benar"   
+           }
+           else {
+            document.querySelector("#q").innerHTML= "Jawaban Salah" 
+           }
+        }
+
+        let j= 0
+       function Pengurangan() {
+           let c= Math.floor(Math.random()*999)
+           let d= Math.floor(Math.random()*999)
+           j=c-d;
+           document.querySelector("#y").value=c;
+           document.querySelector("#i").value=d;
+       }
+       function hasil2() {
+           if(document.querySelector("#m").value==j){
+            document.querySelector("#r").innerHTML= "Jawaban Benar"   
+           }
+           else {
+            document.querySelector("#r").innerHTML= "Jawaban Salah" 
+           }
+        }
+        
+        let k= 0
+       function Perkalian() {
+           let a= Math.floor(Math.random()*100)
+           let b= Math.floor(Math.random()*100)
+           k=a*b;
+           document.querySelector("#x").value=a;
+           document.querySelector("#j").value=b; 
+       }
+       function hasil3() {
+           if(document.querySelector("#n").value==k){
+            document.querySelector("#s").innerHTML= "Jawaban Benar"   
+           }
+           else {
+            document.querySelector("#s").innerHTML= "Jawaban Salah" 
+           }
+        }
+
+        
+       function Bilangan() {
+           let a= Math.floor(Math.random()*999)
+           document.querySelector("#w").value=a;
+       }
+       function hasil4() {
+         let x= document.querySelector("#k").value
+         let y= document.querySelector("#o").value
+         let w= document.querySelector("#p").value 
+        if(document.querySelector("#w").value==x+y+w){
+            document.querySelector("#t").innerHTML= "Jawaban Benar"   
+           }
+           else {
+            document.querySelector("#t").innerHTML= "Jawaban Salah" 
+           }
+        }
+    </script>
+    
+</body>
+</html>

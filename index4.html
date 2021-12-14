@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="Dheandra Halwa Ghassani 2172040">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soal 4</title>
+<style>
+    {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+    #cursor {
+    width: 40px;
+    position: absolute;
+    box-sizing: border-box;
+    height: 40px;
+    border-radius: 50%; 
+    transform: translate(-50%, -50%);
+     background-color: red;
+    border: 2px solid black;
+}
+</style>
+</head>
+    <body>
+        <div id="cursor"></div>
+        <script>
+        let cursor = document.getElementById("cursor");
+        document.addEventListener("mousemove", (e) =>{
+        let x = e.pageX;
+        let y = e.pageY;
+
+        cursor.style.top = y + "px";
+        cursor.style.left = x + "px";
+    })
+    </script>
+</body>
+</html>
